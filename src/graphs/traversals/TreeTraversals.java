@@ -15,22 +15,22 @@ class TreeTraversals {
     }
 
     private static List<Integer> doInorderTraversal(TreeNode root) {
-        List<Integer> path =new LinkedList<>();
-        Stack <TreeNode> nodes=new Stack<>();
-        TreeNode current=root;
-        while(current!=null || !nodes.empty()) {
-            while(current!=null){
+        List<Integer> path = new LinkedList<>();
+        Stack<TreeNode> nodes = new Stack<>();
+        TreeNode current = root;
+        while (current != null || !nodes.empty()) {
+            while (current != null) {
                 nodes.add(current);
-                current=current.left;
+                current = current.left;
             }
-            current=nodes.pop();
+            current = nodes.pop();
             path.add(current.val);
-            current=current.right;
+            current = current.right;
         }
         return path;
     }
 
-    private static TreeNode generateTree(int[] root) {
+    public static TreeNode generateTree(int[] root) {
         if (root == null || root.length == 0) {
             return null;
         }
@@ -71,6 +71,7 @@ class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
+    boolean visited=false;
 
     TreeNode() {
     }
